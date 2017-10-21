@@ -16,6 +16,9 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 
+from movie_database_api import views as movie_database_api_views
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^api/search$', movie_database_api_views.MultiSearch.as_view(), name='all-movies'),
 ]

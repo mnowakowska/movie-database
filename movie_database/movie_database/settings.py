@@ -37,6 +37,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # Third party:
+    'rest_framework',
+
+    # Our:
+    'movie_database_api',
 ]
 
 MIDDLEWARE = [
@@ -118,3 +124,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# The Movie DB
+MOVIE_DB_API_KEY = "59d74ec8eee1d54e053de05e43a56a83"
+MOVIE_DB_API_URL = "https://api.themoviedb.org/3/"
