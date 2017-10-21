@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 
     # Third party:
     'rest_framework',
+    'rest_framework.authtoken',
 
     # Our:
     'movie_database_api',
@@ -124,6 +125,16 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    ),
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+    )
+}
 
 # The Movie DB
 MOVIE_DB_API_KEY = "59d74ec8eee1d54e053de05e43a56a83"

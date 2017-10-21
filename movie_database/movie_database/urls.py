@@ -16,9 +16,13 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 
+from rest_framework.authtoken import views
+
 from movie_database_api import views as movie_database_api_views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^api/search$', movie_database_api_views.MultiSearch.as_view(), name='all-movies'),
+    url(r'^api/moviedb/search$', movie_database_api_views.MultiSearch.as_view(), name='all-movies'),
+    url(r'^api/user/register', movie_database_api_views.CreateUser.as_view(), name='create-user'),
+    url(r'^api/user/auth', views.obtain_auth_token),
 ]
