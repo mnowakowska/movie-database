@@ -1,0 +1,4 @@
+# PyCharm
+.idea/
+# Django stuff:
+*.sqlite3
