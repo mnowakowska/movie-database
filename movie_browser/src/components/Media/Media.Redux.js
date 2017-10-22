@@ -6,7 +6,7 @@ import { loadMedia } from './../../actions/media.js';
 
 const mapStateToProps = (state, ownProps) => {
     return {
-        media: state.media
+        media: state.media.media
     }
 }
 

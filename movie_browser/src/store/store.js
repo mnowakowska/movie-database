@@ -1,9 +1,24 @@
-import { createStore, applyMiddleware } from 'redux';
+import { compose, createStore, applyMiddleware } from 'redux';
+import { autoRehydrate, persistStore } from 'redux-persist';
 import thunk from 'redux-thunk';
 
-import { media } from '../reducers/media.js';
+import rootReducer from './../reducers/index.js';
 
 
-const store = createStore(media, applyMiddleware(thunk));
+const store = createStore(
+    rootReducer,
+    undefined,
+    compose(
+        applyMiddleware(thunk),
+        autoRehydrate()
+    )
+);
+
+persistStore(
+    store,
+    {
+        whitelist: ['token'],
+    }
+);
 
 export default store;

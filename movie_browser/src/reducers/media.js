@@ -5,7 +5,7 @@ const initialState = {
     media: [],
 };
 
-export function media(state = initialState, action) {
+export default function media(state = initialState, action) {
     switch (action.type) {
         case SET_MEDIA:
         return Object.assign({}, state, {

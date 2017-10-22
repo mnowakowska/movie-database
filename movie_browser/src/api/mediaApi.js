@@ -1,22 +1,20 @@
-import axios from 'axios';
-
-const URL = 'http://localhost:8000/api/';
-
+import { authApiClient } from './apiClient.js';
 
 
 class MediaApi {
     static searchMedia(query) {
-        return axios.get(
-            URL + 'moviedb/search',
+        const params = {
+            q: query,
+        };
+        return authApiClient().get(
+            'moviedb/search',
             {
-                params : {
-                    q: query,
-                }
+                params,
             }
         ).then(response => {
             return response.data;
         }).catch(error => {
-            return error;
+            throw(error);
         });
     }
 }

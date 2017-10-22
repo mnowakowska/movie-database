@@ -9,7 +9,7 @@ class SearchMedia extends Component {
             searchQuery: '',
         };
         this.getNewResults = this.getNewResults.bind(this);
-        this.typeName = this.typeName.bind(this)
+        this.typeName = this.typeName.bind(this);
     }
 
     getNewResults () {
