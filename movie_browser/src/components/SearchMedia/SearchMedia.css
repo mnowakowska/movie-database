@@ -1,0 +1,17 @@
+#search-form {
+    margin: 30px 50px;
+}
+
+.search-group {
+    width: 88%;
+}
+
+#search-form .search-input {
+    width: 96%;
+}
+
+#search-form .search-button {
+    float: right;
+    margin-top: 6px;
+    background-color: #fed136;
+}

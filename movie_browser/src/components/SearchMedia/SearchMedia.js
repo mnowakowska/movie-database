@@ -1,4 +1,12 @@
 import React, { Component } from 'react';
+import {
+    Button,
+    Form,
+    FormGroup,
+    FormControl,
+} from 'react-bootstrap';
+
+import './SearchMedia.css';
 
 
 class SearchMedia extends Component {
@@ -12,8 +20,9 @@ class SearchMedia extends Component {
         this.typeName = this.typeName.bind(this);
     }
 
-    getNewResults () {
+    getNewResults (event) {
         this.props.searchMedia(this.state.searchQuery, 1);
+        event.preventDefault();
     }
 
     typeName (newName) {
@@ -25,18 +34,26 @@ class SearchMedia extends Component {
     render() {
         return (
             <div>
-                <form>
-                    <input
-                        id="formControlsText"
-                        type="text"
-                        placeholder="Search movies/tv shows or ppl"
-                        value={this.state.searchQuery}
-                        onChange={this.typeName}
-                    />
-                </form>
-                <button onClick={this.getNewResults} disabled={!this.state.searchQuery}>
-                    Search
-                </button>
+                <Form id="search-form" inline onSubmit={this.getNewResults} >
+                    <FormGroup bsSize="large" className="search-group">
+                        <FormControl
+                            id="formControlsText"
+                            type="text"
+                            placeholder="Search movies, tv shows or people"
+                            value={this.state.searchQuery}
+                            onChange={this.typeName}
+                            className="search-input"
+                        />
+                    </FormGroup>
+                    <Button
+                        onClick={this.getNewResults}
+                        disabled={!this.state.searchQuery}
+                        className="search-button"
+
+                    >
+                        Search
+                    </Button>
+                </Form>
             </div>
         );
     }
