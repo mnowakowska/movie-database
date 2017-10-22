@@ -7,9 +7,10 @@ from rest_framework import status
 from rest_framework.authtoken.models import Token
 from rest_framework.generics import CreateAPIView
 from rest_framework.views import APIView
+from rest_framework import viewsets
 from rest_framework.response import Response
 
-from .serializer import UserSerializer
+from .serializer import UserSerializer, FavoriteMoviesSerializer
 
 
 class MultiSearch(APIView):
@@ -46,3 +47,13 @@ class CreateUser(CreateAPIView):
         headers = self.get_success_headers(serializer.data)
         token, created = Token.objects.get_or_create(user=serializer.instance)
         return Response({'token': token.key}, status=status.HTTP_201_CREATED, headers=headers)
+
+
+class UserFavoriteMoviesViewSet(viewsets.ModelViewSet):
+    serializer_class = FavoriteMoviesSerializer
+
+    def get_queryset(self):
+        return self.request.user.favoritemovies_set.all()
+
+    def perform_create(self, serializer):
+        serializer.save(user=self.request.user)

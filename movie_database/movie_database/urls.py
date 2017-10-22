@@ -23,6 +23,7 @@ from movie_database_api import views as movie_database_api_views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^api/moviedb/search$', movie_database_api_views.MultiSearch.as_view(), name='all-movies'),
+    url(r'^api/user/favorite$', movie_database_api_views.UserFavoriteMoviesViewSet.as_view({'get': 'list', 'post': 'create'}), name='favorite-movies'),
     url(r'^api/user/register', movie_database_api_views.CreateUser.as_view(), name='create-user'),
     url(r'^api/user/auth', views.obtain_auth_token),
 ]
