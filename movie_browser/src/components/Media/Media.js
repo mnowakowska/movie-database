@@ -13,7 +13,10 @@ class Media extends Component {
                     searchMedia={this.props.searchMedia}
                     query={this.props.query}
                 />
-                <ItemList media={this.props.media} />
+                <ItemList
+                    media={this.props.media}
+                    query={this.props.query}
+                />
                 <Pagination
                     media={this.props.media}
                     searchMedia={this.props.searchMedia}
