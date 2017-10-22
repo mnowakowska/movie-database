@@ -11,7 +11,6 @@ export default function(ComposedComponent) {
 
         componentWillMount() {
             if (!this.props.token) {
-                debugger;
                 this.context.router.history.push('/login');
             }
         }

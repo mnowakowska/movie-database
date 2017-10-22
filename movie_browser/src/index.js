@@ -7,6 +7,7 @@ import store from './store/store.js';
 import registerServiceWorker from './registerServiceWorker';
 
 import './index.css';
+import 'bootstrap/dist/css/bootstrap.css';
 
 
 const Root = () => (

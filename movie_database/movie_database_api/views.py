@@ -27,9 +27,12 @@ class MultiSearch(APIView):
             'api_key': settings.MOVIE_DB_API_KEY,
             'page': request.GET.get('page', 1),
         }
-        url = urllib.parse.urljoin(settings.MOVIE_DB_API_URL, "search/multi")
-        response = requests.request("GET", url, data=payload)
+        url = urllib.parse.urljoin(settings.MOVIE_DB_API_URL, 'search/multi')
+        response = requests.request('GET', url, data=payload)
         data = response.json()
+        # API doesn't support getting page higher than 1000
+        if data['total_pages'] > 1000:
+            data['total_pages'] = 1000
         return Response(data)
 
 
