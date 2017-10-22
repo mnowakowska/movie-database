@@ -1,11 +1,11 @@
 import React from 'react';
 
 
-function LogOut ({ logoutUser }) {
+function LogOut ({ logoutUser, className }) {
     return (
-        <button onClick={logoutUser}>
+        <a onClick={logoutUser} className={className} >
             Log Out
-        </button>
+        </a>
     );
 }
 
