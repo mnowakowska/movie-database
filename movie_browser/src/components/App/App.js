@@ -9,8 +9,10 @@ class App extends Component {
         <header>
             <ul>
                 <li><Link to="/">Home</Link></li>
-                <li><Link to="/login">Sing In</Link></li>
-                <li><Link to="/media">Search</Link></li>
+                { this.props.isAuthenticated ?
+                    <li><Link to="/media">Search</Link></li> :
+                    <li><Link to="/login">Sing In</Link></li>
+                }
             </ul>
         </header>
       </div>
