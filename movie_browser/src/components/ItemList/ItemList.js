@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
+import {
+    Media,
+} from 'react-bootstrap';
 
 import Item from './../Item/Item.js';
+import './ItemList.css';
 
 
 class ItemList extends Component {
@@ -14,7 +18,7 @@ class ItemList extends Component {
             <Item item={item} key={item.id} />
         ));
         return (
-            <div>
+            <div className="itemsContainer">
                 {items}
             </div>
         );
