@@ -21,6 +21,10 @@ class SearchMedia extends Component {
     }
 
     getNewResults (event) {
+        if (!this.state.searchQuery) {
+            event.preventDefault();
+            return;
+        }
         this.props.searchMedia(this.state.searchQuery, 1);
         event.preventDefault();
     }
