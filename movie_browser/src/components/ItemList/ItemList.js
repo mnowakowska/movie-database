@@ -1,7 +1,4 @@
 import React, { Component } from 'react';
-import {
-    Media,
-} from 'react-bootstrap';
 
 import Item from './../Item/Item.js';
 import NoResults from './../NoResults/NoResults.js';
@@ -15,7 +12,7 @@ class ItemList extends Component {
     }
 
     render() {
-        if (this.props.query && this.props.media.length == 0) {
+        if (this.props.query && this.props.media.length === 0) {
             return <NoResults />;
         }
 
