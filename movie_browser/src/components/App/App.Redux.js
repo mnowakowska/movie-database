@@ -5,7 +5,7 @@ import App from './App.js';
 
 const mapStateToProps = (state, ownProps) => {
     return {
-        isAuthenticated: !!state.token,
+        isAuthenticated: !!state.user.token,
     }
 }
 

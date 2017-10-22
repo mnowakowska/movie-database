@@ -16,13 +16,13 @@ class SingIn extends Component {
 
     componentWillMount() {
         if (this.props.token) {
-            this.context.router.history.push('/media');
+            this.context.router.history.push('/');
         }
     }
 
     componentWillUpdate(nextProps) {
         if (nextProps.token) {
-            this.context.router.history.push('/media');
+            this.context.router.history.push('/');
         }
     }
 
@@ -66,6 +66,7 @@ class SingIn extends Component {
             <button onClick={this.authUser} >
                 Sing In
             </button>
+            {this.props.error && 'Error! Invalid credentials'}
         </div>
     );
   }

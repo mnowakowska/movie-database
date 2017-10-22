@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 
-import { logoutUser } from './../../actions/token.js';
+import { logoutUser } from './../../actions/user.js';
 import LogOut from './LogOut.js';
 
 

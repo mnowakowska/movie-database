@@ -1,7 +1,7 @@
 import { connect } from 'react-redux'
 
 import SingIn from './SingIn.js';
-import { authUser } from './../../actions/token.js';
+import { authUser } from './../../actions/user.js';
 
 
 const mapDispatchToProps = dispatch => {
@@ -14,7 +14,8 @@ const mapDispatchToProps = dispatch => {
 
 const mapStateToProps = (state) => {
     return {
-        token: state.token
+        token: state.user.token,
+        error: state.user.loginError,
     }
 }
 

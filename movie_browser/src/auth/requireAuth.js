@@ -27,7 +27,7 @@ export default function(ComposedComponent) {
     }
 
     function mapStateToProps(state) {
-        return { token: state.token };
+        return { token: state.user.token };
     }
 
     return connect(mapStateToProps)(Authentication);

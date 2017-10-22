@@ -17,7 +17,7 @@ const store = createStore(
 persistStore(
     store,
     {
-        whitelist: ['token'],
+        whitelist: ['user'],
     }
 );
 
