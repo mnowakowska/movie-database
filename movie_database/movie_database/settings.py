@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     # Third party:
     'rest_framework',
     'rest_framework.authtoken',
+    'corsheaders',
 
     # Our:
     'movie_database_api',
@@ -49,6 +50,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -127,15 +129,18 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 REST_FRAMEWORK = {
-    'DEFAULT_PERMISSION_CLASSES': (
-        'rest_framework.permissions.IsAuthenticated',
-    ),
+    # 'DEFAULT_PERMISSION_CLASSES': (
+    #     'rest_framework.permissions.IsAuthenticated',
+    # ),
     'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework.authentication.BasicAuthentication',
-        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.TokenAuthentication',
     )
 }
 
 # The Movie DB
 MOVIE_DB_API_KEY = "59d74ec8eee1d54e053de05e43a56a83"
 MOVIE_DB_API_URL = "https://api.themoviedb.org/3/"
+
+CORS_ORIGIN_REGEX_WHITELIST = [
+    r'^http(s?)://localhost',
+]

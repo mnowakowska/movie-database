@@ -1,17 +1,27 @@
 import { connect } from 'react-redux'
 
 import Media from './Media.js';
+import { loadMedia } from './../../actions/media.js';
 
 
 const mapStateToProps = (state, ownProps) => {
+    return {
+        media: state.media
+    }
+}
+
+const mapDispatchToProps = dispatch => {
   return {
-    media: state.media
+    searchMedia: query => {
+        dispatch(loadMedia(query))
+    },
   }
 }
 
 
 const MediaRedux = connect(
-  mapStateToProps,
+    mapStateToProps,
+    mapDispatchToProps
 )(Media);
 
 export default MediaRedux;
