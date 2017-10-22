@@ -7,7 +7,9 @@ import './Item.css';
 
 
 function Item ({ item }) {
+debugger;
     const imgUrl=`http://image.tmdb.org/t/p/w92/${item.poster_path}`;
+    const itemRatings = item.vote_average ? item.vote_average.toFixed(2) : 0;
     return (
         <div className="item-container">
             <Media>
@@ -16,7 +18,7 @@ function Item ({ item }) {
                 </Media.Left>
                 <Media.Body>
                      <Media.Heading>
-                         {item.name || item.original_name}
+                         {item.name || item.original_name || item.original_title}
                          {' '}
                          ({item.media_type})
                      </Media.Heading>
@@ -26,7 +28,7 @@ function Item ({ item }) {
                     <div>
                         <span>Rating: </span>
                         <span className="popularity">
-                            {item.vote_average.toFixed(2)}
+                            {itemRatings}
                         </span>
                     </div>
                 </Media.Right>
