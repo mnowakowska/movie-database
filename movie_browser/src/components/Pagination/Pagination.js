@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Pagination as BootstrapPagination } from 'react-bootstrap';
 
+import './Pagination.css';
+
 
 class Pagination extends Component {
 
@@ -21,7 +23,7 @@ class Pagination extends Component {
             return null;
         }
         return (
-            <div>
+            <div className="pagination-container" >
                 <BootstrapPagination
                     prev
                     next
