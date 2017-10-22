@@ -36,7 +36,6 @@ export function authUser(username, password) {
                 dispatch(setLoginError(true));
                 return;
             }
-            debugger;
             dispatch(setToken(response.token));
             dispatch(setLoginError(false))
         }).catch(error => {
