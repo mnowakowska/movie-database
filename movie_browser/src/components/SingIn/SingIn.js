@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 
 class SingIn extends Component {
@@ -11,6 +12,18 @@ class SingIn extends Component {
         };
         this.authUser = this.authUser.bind(this);
         this.changeValue = this.changeValue.bind(this);
+    }
+
+    componentWillMount() {
+        if (this.props.token) {
+            this.context.router.history.push('/media');
+        }
+    }
+
+    componentWillUpdate(nextProps) {
+        if (nextProps.token) {
+            this.context.router.history.push('/media');
+        }
     }
 
     authUser () {
@@ -56,6 +69,10 @@ class SingIn extends Component {
         </div>
     );
   }
+}
+
+SingIn.contextTypes = {
+    router: PropTypes.object.isRequired,
 }
 
 export default SingIn;

@@ -13,7 +13,7 @@ import App from './components/App/App';
 import MediaRedux from './components/Media/Media.Redux.js';
 import SingInRedux from './components/SingIn/SingIn.Redux.js';
 import registerServiceWorker from './registerServiceWorker';
-
+import requireAuth from './auth/requireAuth.js';
 
 const Root = () => (
     <Provider store={store}>
@@ -29,7 +29,7 @@ const Root = () => (
 
                 <Route exact path="/" component={App}/>
                 <Route exact path="/login" component={SingInRedux}/>
-                <Route exact path="/media" component={MediaRedux}/>
+                <Route exact path="/media" component={requireAuth(MediaRedux)}/>
             </div>
         </Router>
     </Provider>

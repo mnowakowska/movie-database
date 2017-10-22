@@ -12,9 +12,14 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
+const mapStateToProps = (state) => {
+    return {
+        token: state.token
+    }
+}
 
 const SingInRedux = connect(
-    null,
+    mapStateToProps,
     mapDispatchToProps
 )(SingIn);
 
