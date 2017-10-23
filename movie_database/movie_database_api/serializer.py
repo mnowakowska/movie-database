@@ -7,7 +7,7 @@ from .models import FavoriteMovies
 class UserSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = User
-        fields = ('username', 'email')
+        fields = ('username', 'password')
 
 
 class FavoriteMoviesSerializer(serializers.ModelSerializer):

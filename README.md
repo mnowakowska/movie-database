@@ -20,3 +20,5 @@ Frontend Application:
 Backend Application:
 `http://localhost:8000`
 
+#### Run tests
+`npm test --prefix movie_browser`

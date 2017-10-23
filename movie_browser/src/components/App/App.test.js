@@ -24,11 +24,11 @@ describe('App Component', () => {
 
     it('renders two links for log in users', () => {
         const wrapper = shallow(<App isAuthenticated={true} />);
-        expect(wrapper.find('.nav-link').length).toBe(2);
+        expect(wrapper.find('.nav-link').length).toBe(3);
     });
 
     it('renders one link for not log in users', () => {
         const wrapper = shallow(<App isAuthenticated={false} />);
-        expect(wrapper.find('.nav-link').length).toBe(1);
+        expect(wrapper.find('.nav-link').length).toBe(2);
     });
 });
