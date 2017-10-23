@@ -1,13 +1,11 @@
 import React from 'react';
-import {
-    Media,
-} from 'react-bootstrap';
+import { Media } from 'react-bootstrap';
 
+import AddFavorite from './../AddFavorite/AddFavorite.js';
 import './Item.css';
 
 
-function Item ({ item }) {
-debugger;
+function Item ({ item, addFavorite }) {
     const imgUrl=`http://image.tmdb.org/t/p/w92/${item.poster_path}`;
     const itemRatings = item.vote_average ? item.vote_average.toFixed(2) : 0;
     return (
@@ -31,6 +29,7 @@ debugger;
                             {itemRatings}
                         </span>
                     </div>
+                    <AddFavorite addFavorite={addFavorite} item={item} />
                 </Media.Right>
             </Media>
         </div>

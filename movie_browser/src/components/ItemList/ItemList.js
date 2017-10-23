@@ -17,7 +17,7 @@ class ItemList extends Component {
         }
 
         const items = this.props.media.map((item) => (
-            <Item item={item} key={item.id} />
+            <Item item={item} key={item.id} addFavorite={this.props.addFavorite} />
         ));
         return (
             <div className="itemsContainer">

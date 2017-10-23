@@ -13,3 +13,11 @@ export const authApiClient = function() {
     };
     return axios.create(params);
 }
+
+
+export const apiClient = function() {
+    const params = {
+        baseURL: URL,
+    };
+    return axios.create(params);
+}

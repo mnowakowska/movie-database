@@ -2,6 +2,7 @@ import { connect } from 'react-redux'
 
 import Media from './Media.js';
 import { loadMedia } from './../../actions/media.js';
+import { addUserFavorite } from './../../actions/user.js';
 
 
 const mapStateToProps = (state, ownProps) => {
@@ -14,11 +15,14 @@ const mapStateToProps = (state, ownProps) => {
 }
 
 const mapDispatchToProps = dispatch => {
-  return {
-    searchMedia: (query, page) => {
-        dispatch(loadMedia(query, page))
-    },
-  }
+    return {
+        searchMedia: (query, page) => {
+            dispatch(loadMedia(query, page))
+        },
+        addFavorite: (media) => {
+            dispatch(addUserFavorite(media))
+        },
+    }
 }
 
 

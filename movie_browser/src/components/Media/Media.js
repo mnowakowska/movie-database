@@ -15,6 +15,7 @@ function Media (props) {
             <ItemList
                 media={props.media}
                 query={props.query}
+                addFavorite={props.addFavorite}
             />
             <Pagination
                 media={props.media}
