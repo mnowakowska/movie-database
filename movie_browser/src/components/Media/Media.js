@@ -16,6 +16,7 @@ function Media (props) {
                 media={props.media}
                 query={props.query}
                 addFavorite={props.addFavorite}
+                showRight
             />
             <Pagination
                 media={props.media}

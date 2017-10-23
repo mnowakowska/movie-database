@@ -5,6 +5,7 @@ import requireAuth from './auth/requireAuth.js';
 import AppRedux from './components/App/App.Redux.js';
 import MediaRedux from './components/Media/Media.Redux.js';
 import SingInRedux from './components/SingIn/SingIn.Redux.js';
+import FavoritesRedux from './components/Favorites/Favorites.Redux.js';
 import HomePage from './components/HomePage/HomePage.js';
 
 
@@ -16,6 +17,7 @@ export default function CustomRouter () {
                 <Route exact path="/" component={HomePage} />
                 <Route exact path="/login" component={SingInRedux} />
                 <Route exact path="/media" component={requireAuth(MediaRedux)} />
+                <Route exact path="/favorites" component={requireAuth(FavoritesRedux)} />
             </div>
         </Router>
     );

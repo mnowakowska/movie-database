@@ -16,7 +16,10 @@ function App ({ isAuthenticated }) {
             </Navbar.Header>
             <Nav>
                 { isAuthenticated && (
-                    <Link className="nav-link" to="/media">Browse</Link>
+                    <div className="user-links">
+                        <Link className="nav-link" to="/media">Browse</Link>
+                        <Link className="nav-link" to="/favorites">Favorites</Link>
+                    </div>
                 )}
             </Nav>
             <Nav pullRight>

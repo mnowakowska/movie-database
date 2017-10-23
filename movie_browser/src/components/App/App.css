@@ -6,3 +6,7 @@
 .nav-link {
     line-height: 3.8;
 }
+
+.user-links a {
+    margin-right: 15px
+}

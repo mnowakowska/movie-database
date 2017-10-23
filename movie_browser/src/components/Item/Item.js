@@ -5,7 +5,7 @@ import AddFavorite from './../AddFavorite/AddFavorite.js';
 import './Item.css';
 
 
-function Item ({ item, addFavorite }) {
+function Item ({ item, addFavorite, showRight }) {
     const imgUrl=`http://image.tmdb.org/t/p/w92/${item.poster_path}`;
     const itemRatings = item.vote_average ? item.vote_average.toFixed(2) : 0;
     return (
@@ -22,15 +22,17 @@ function Item ({ item, addFavorite }) {
                      </Media.Heading>
                     <div>{item.overview} </div>
                 </Media.Body>
-                <Media.Right>
-                    <div>
-                        <span>Rating: </span>
-                        <span className="popularity">
-                            {itemRatings}
-                        </span>
-                    </div>
-                    <AddFavorite addFavorite={addFavorite} item={item} />
-                </Media.Right>
+                {showRight && (
+                    <Media.Right>
+                        <div>
+                            <span>Rating: </span>
+                            <span className="popularity">
+                                {itemRatings}
+                            </span>
+                        </div>
+                        <AddFavorite addFavorite={addFavorite} item={item} />
+                    </Media.Right>
+                )}
             </Media>
         </div>
     );
