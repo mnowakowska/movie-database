@@ -5,6 +5,7 @@ export const SET_LOGIN_ERROR = 'SET_LOGIN_ERROR';
 export const REMOVE_TOKEN = 'REMOVE_TOKEN';
 export const GET_FAVORITE = 'GET_FAVORITE';
 export const ADD_FAVORITE = 'ADD_FAVORITE';
+export const SET_REGISTER_ERROR = 'SET_REGISTER_ERROR';
 
 
 export function setToken(token) {
@@ -18,6 +19,14 @@ export function setToken(token) {
 export function setLoginError (value) {
     return {
         type: SET_LOGIN_ERROR,
+        value
+    }
+}
+
+
+export function setRegisterError (value) {
+    return {
+        type: SET_REGISTER_ERROR,
         value
     }
 }
@@ -56,6 +65,22 @@ export function authUser(username, password) {
             dispatch(setLoginError(false))
         }).catch(error => {
             dispatch(setLoginError(true));
+        });
+    };
+}
+
+
+export function createUser(username, password) {
+    return function(dispatch) {
+        return UserApi.createUser(username, password).then(response => {
+            if (!response.token) {
+                dispatch(setRegisterError(true));
+                return;
+            }
+            dispatch(setToken(response.token));
+            dispatch(setRegisterError(false))
+        }).catch(error => {
+            dispatch(setRegisterError(true));
         });
     };
 }

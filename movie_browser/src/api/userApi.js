@@ -16,6 +16,20 @@ class UserApi {
         });
     }
 
+    static createUser(username, password) {
+        return apiClient().post(
+            'user/register',
+            {
+                username,
+                password,
+            }
+        ).then(response => {
+            return response.data;
+        }).catch(error => {
+            throw(error);
+        });
+    }
+
     static addFavorite(media) {
         debugger;
         return authApiClient().post(

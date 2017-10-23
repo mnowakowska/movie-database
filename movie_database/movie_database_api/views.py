@@ -39,6 +39,7 @@ class MultiSearch(APIView):
 
 class CreateUser(CreateAPIView):
     serializer_class = UserSerializer
+    permission_classes = ()
 
     def create(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)

@@ -139,7 +139,7 @@ REST_FRAMEWORK = {
 }
 
 # The Movie DB
-MOVIE_DB_API_KEY = "59d74ec8eee1d54e053de05e43a56a83"
+MOVIE_DB_API_KEY = ""
 MOVIE_DB_API_URL = "https://api.themoviedb.org/3/"
 
 CORS_ORIGIN_REGEX_WHITELIST = [

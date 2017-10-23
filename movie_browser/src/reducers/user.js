@@ -4,12 +4,14 @@ import {
     SET_LOGIN_ERROR,
     ADD_FAVORITE,
     GET_FAVORITE,
+    SET_REGISTER_ERROR,
 } from './../actions/user.js'
 
 
 const initialState = {
     token: null,
     loginError: false,
+    registerError: false,
     favorite: [],
 };
 
@@ -26,6 +28,10 @@ export default function user(state = initialState, action) {
         case SET_LOGIN_ERROR:
             return Object.assign({}, state, {
                 loginError: action.value,
+            });
+        case SET_REGISTER_ERROR:
+            return Object.assign({}, state, {
+                registerError: action.value,
             });
         case ADD_FAVORITE:
             return Object.assign({}, state, {

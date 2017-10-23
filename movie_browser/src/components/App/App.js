@@ -24,7 +24,12 @@ function App ({ isAuthenticated }) {
             </Nav>
             <Nav pullRight>
                 { !isAuthenticated ?
-                    <Link className="nav-link" to="/login">Sing In</Link> :
+                    (
+                        <div className="user-links">
+                            <Link className="nav-link" to="/login">Sing In</Link>
+                            <Link className="nav-link" to="/register">Register</Link>
+                        </div>
+                    ) :
                     <LogOutRedux className="nav-link" />
                 }
             </Nav>
